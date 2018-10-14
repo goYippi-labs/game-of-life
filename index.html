@@ -53,6 +53,34 @@
       .input, .step {
         text-align: center;
       }
+      input {
+          font-family: 'Source Sans Pro', Arial, sans-serif;
+          font-size: 1.063em;
+          border: 1px solid #000;
+          background-color: #FFF;
+          width: 99%;
+          max-width: 260px;
+          padding: 3px 1px;
+          border-radius: 0;
+          margin-bottom: 10px;
+          -webkit-appearance: none;
+      }
+      input::-webkit-input-placeholder {
+          color: #000;
+          opacity: 1;
+      }
+      input:-ms-input-placeholder{
+          color: #000;
+          opacity: 1;
+      }
+      input::-moz-placeholder {
+          color: #000;
+          opacity: 1;
+      }
+      input:-moz-placeholder {
+          color: #000;
+          opacity: 1;
+      }
       button {
         font-family: 'Source Sans Pro', Arial, sans-serif;
         font-size: 1.063em;
@@ -64,6 +92,7 @@
         border-radius: 0;
         margin-bottom: 6px;
         cursor: pointer;
+        -webkit-appearance: none;
       }
       .iteration-running .input {
         opacity: 0;
@@ -83,7 +112,7 @@
     <div class="input">
       <p>
         <label for="iterations">Number of Iterations</label><br />
-        <input id="iterations" type="number" value="20" placeholder="20" min="10" max="100" />
+        <input id="iterations" type="number" value="20" placeholder="20" min="10" max="100" pattern="\d*" />
       </p>
       <!--<p>
         <label for="fieldsize">Change Fieldsize</label><br />
