@@ -180,11 +180,11 @@
         });
       });
 
-      jQuery(document).on('click touch', 'td', function() {
+      jQuery(document).on('click touchstart', 'td', function() {
 				jQuery(this).toggleClass('active');
 			});
 
-      jQuery(document).on('click touch', '.reset', function() {
+      jQuery(document).on('click touchstart', '.reset', function() {
         step = 0;
         jQuery('.step-count').text(step);
         jQuery('td').each(function(){
@@ -192,14 +192,14 @@
         });
 			});
 
-      jQuery(document).on('click touch', '.run', function() {
+      jQuery(document).on('click touchstart', '.run', function() {
         step++;
         jQuery('.step-count').text(step);
         checkCells();
         writeCells();
 			});
 
-      jQuery(document).on('click touch', '.play', function() {
+      jQuery(document).on('click touchstart', '.play', function() {
         jQuery('body').addClass('iteration-running');
         if(jQuery('#iterations').val()) {
           iterations = jQuery('#iterations').val();
@@ -221,7 +221,7 @@
 
       var clicked = false;
 
-      jQuery(document).on('click touch', '.change-field', function() {
+      jQuery(document).on('click touchstart', '.change-field', function() {
         if(jQuery('#fieldsize').val()) {
           rowNum = jQuery('#fieldsize').val();
           colNum = jQuery('#fieldsize').val();
