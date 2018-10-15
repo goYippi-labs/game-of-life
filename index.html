@@ -128,7 +128,7 @@
           iterations = 20,
           step = 0,
           aliveCount = 0,
-          colorClasses = ['active', ''];
+          colorClasses = ['active', '', ''];
 
       function tableCreate(){
         var body = document.getElementById('table');
@@ -145,29 +145,43 @@
         body.appendChild(tbl);
       }
 
-      function checkSurroundedCells(yPos,xPos) {
-        jQuery('table tr').each(function() {
-          if (jQuery(this).index() == yPos-2 || jQuery(this).index() == yPos-1 || jQuery(this).index() == yPos) {
-            var $this = jQuery(this);
-            $this.children('td').each(function(){
-              if (jQuery(this).index() == xPos-2 || jQuery(this).index() == xPos-1 || jQuery(this).index() == xPos) {
-                if (jQuery(this).hasClass('active')) {
-                  aliveCount++;
-                }
+      function getData() {
+        var data = Array();
+
+        jQuery('table tr').each(function(i){
+          data[i] = Array();
+          jQuery(this).children('td').each(function(ii){
+            data[i][ii] = jQuery(this).hasClass('active') ? true : false;
+          });
+        })
+
+        //console.log(data);
+
+        return data;
+      }
+
+      function checkSurroundedCells(yPos,xPos,data) {
+        for (var j = yPos-2; j <= yPos; j++) {
+          for (var i = xPos-2; i <= xPos; i++) {
+            if (i>=0 && i<colNum && j>=0 && j<rowNum) {
+              if (data[j][i] == true) {
+                aliveCount++;
               }
-            });
+            }
           }
-        });
+        }
       }
 
       function checkCells() {
+        var data = getData();
+
         jQuery('td').each(function(){
           aliveCount = 0;
 
           var xPos = jQuery(this).index()+1,
               yPos = jQuery(this).parent().index()+1;
 
-          checkSurroundedCells(yPos,xPos);
+          checkSurroundedCells(yPos,xPos,data);
 
           // will die
           if (jQuery(this).hasClass('active') && (aliveCount < 3 || aliveCount > 4) ) {
