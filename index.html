@@ -121,11 +121,11 @@
     <div class="input">
       <p>
         <label for="iterations">Iterations</label><br />
-        <input id="iterations" type="number" value="" placeholder="20" min="10" max="100" pattern="\d*" />
+        <input id="iterations" type="number" value="20" placeholder="20" min="10" max="100" pattern="\d*" />
       </p>
       <p>
         <label for="speed">Speed (ms)</label><br />
-        <input id="speed" type="number" value="" placeholder="1000" min="100" max="10000" step="100" pattern="\d*" />
+        <input id="speed" type="number" value="1000" placeholder="1000" min="100" max="10000" step="100" pattern="\d*" />
       </p>
     </div>
 
@@ -134,7 +134,7 @@
       var rowNum = 20,
           colNum = 20,
           iterations = 20,
-          speed = 1000,
+          speed = jQuery('#speed').val() ? jQuery('#speed').val() : 1000,
           step = 0,
           aliveCount = 0,
           colorClasses = ['active', '', '', ''];
