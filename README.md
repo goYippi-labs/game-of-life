@@ -8,5 +8,5 @@ https://goyippi-labs.github.io/game-of-life/
 Embedding via iframe:
 
 ```html
-<iframe src="https://goyippi-labs.github.io/game-of-life/" width="100%" height="500" frameborder="0"></iframe>
+<iframe src="https://goyippi-labs.github.io/game-of-life/" width="100%" height="600" frameborder="0"></iframe>
 ```
